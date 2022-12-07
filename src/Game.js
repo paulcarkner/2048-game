@@ -12,7 +12,7 @@ $(document).keydown(function (e) {
             newtd = emptytd;
           }
           if (
-            newtd.prev().text() == newtd.text() &&
+            newtd.prev().text() === newtd.text() &&
             !newtd.prev().is(".merged")
           ) {
             moved = mergeTiles(newtd.prev(), newtd);
@@ -24,7 +24,7 @@ $(document).keydown(function (e) {
       case 38: // up
         $("td:not(.empty)").each(function () {
           var colNum = $(this).parent().children().index(this);
-          var rows = $(this).parent().prevAll();
+          //var rows = $(this).parent().prevAll();
           var emptytd = $(this)
             .parent()
             .prevAll()
@@ -37,7 +37,7 @@ $(document).keydown(function (e) {
             newtd = emptytd;
           }
           var mergetd = newtd.parent().prev().children().eq(colNum);
-          if (mergetd.text() == newtd.text() && !mergetd.is(".merged")) {
+          if (mergetd.text() === newtd.text() && !mergetd.is(".merged")) {
             moved = mergeTiles(mergetd, newtd);
           }
         });
@@ -53,7 +53,7 @@ $(document).keydown(function (e) {
             newtd = emptytd;
           }
           if (
-            newtd.next().text() == newtd.text() &&
+            newtd.next().text() === newtd.text() &&
             !newtd.next().is(".merged")
           ) {
             moved = mergeTiles(newtd.next(), newtd);
@@ -65,7 +65,7 @@ $(document).keydown(function (e) {
       case 40: // down
         $($("td:not(.empty)").get().reverse()).each(function () {
           var colNum = $(this).parent().children().index(this);
-          var rows = $(this).parent().nextAll();
+          //var rows = $(this).parent().nextAll();
           var emptytd = $(this)
             .parent()
             .nextAll()
@@ -78,7 +78,7 @@ $(document).keydown(function (e) {
             newtd = emptytd;
           }
           var mergetd = newtd.parent().next().children().eq(colNum);
-          if (mergetd.text() == newtd.text() && !mergetd.is(".merged")) {
+          if (mergetd.text() === newtd.text() && !mergetd.is(".merged")) {
             moved = mergeTiles(mergetd, newtd);
           }
         });
@@ -106,7 +106,7 @@ $(document).keydown(function (e) {
     // }
     var newTile = tds.eq(getRand(tds.length));
     newTile.removeClass("empty").css("color", "inherit");
-    if (getRand(10) == 9) {
+    if (getRand(10) === 9) {
       newTile.text("4").css("background-color", "hsla(22, 100%, 90%, 1)");
     } else {
       newTile.text("2").css("background-color", "hsla(22, 100%, 95%, 1)");
@@ -146,6 +146,6 @@ $(document).keydown(function (e) {
     return Math.floor(Math.random() * x);
   }
 
-  function endGame() {
-    window.location.reload();
-  }
+//   function endGame() {
+//     window.location.reload();
+//   }
